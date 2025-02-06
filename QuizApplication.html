@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+            margin: 20px;
+        }
+        h1{
+            color: #333;
+
+        }
+        button{
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+        p{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Application</h1>
+    <div id="quiz-container">
+        <p id="quiz-queston">What is the capital of france?</p>
+        <button onclick="checkAnswer('A')">Paris</button>
+        <button onclick="checkAnswer('B')">London</button>
+        <button onclick="checkAnswer('C')">Berlin</button>
+        <p id="quiz-result"></p>
+    </div>
+    <script>
+        function checkAnswer(answer){
+            const correctAnswer = 'A';
+            const result = document.getElementById('quiz-result');
+            if(answer===correctAnswer){
+                result.textContent='Correct! The capital of France is Paris';
+                result.style='green';
+
+            }else{
+                result.textContent='Wrong answer! try again';
+                result.style.color='red';
+            }
+        }
+    </script>
+</body>
+</html>

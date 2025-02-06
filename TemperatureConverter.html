@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1{
+            color: #333;        
+        }
+        input,select,button{
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button{
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <input type="number" id="temp-input" placeholder="Enter Temperature :">
+    <select id="temp-unit">
+        <option value="Celsius">Celsius</option>
+        <option value="Fahrenhite">Fahrenhite</option>
+        <option value="Kelvin">Kelvin</option>
+    </select>
+    <button onclick="convertTemp()">Convert</button>
+    <p id="temp-output"></p>
+
+    <script>
+        function convertTemp(){
+            const temp = parseFloat(document.getElementById('temp-input').value);
+            const unit = document.getElementById('temp-unit').value;
+            let result = '';
+
+            if(isNAN(temp)){
+                result = 'Plase enter a valid number';
+            }else{
+                if(unit === 'Celsius'){
+                    result = 'Fahrenheit:${(temp*9/5+32).toFixed(2)}, kelvin:${(temp + 273.15).toFixed(2)}';
+                }else if(unit === 'Fahrenhite'){
+                    result = 'Celsius:${((temp-32)*5/9).toFixed(2)}, kelvin:${(temp + 273.15).toFixed(2)}';
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
